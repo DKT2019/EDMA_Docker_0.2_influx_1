@@ -1,5 +1,6 @@
 version: "3"
 services:
+
   nodered: 
     build: ./nodered
     image: localbuild/nodered:april2021
@@ -11,6 +12,7 @@ services:
       - noderedData:/data
     networks:
       - edge
+      
   grafana:
     build: ./grafana
     image: localbuild/grafana:april2021
@@ -22,6 +24,20 @@ services:
       - grafanaData:/var/lib/grafana
     networks:
       - edge
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mqtt
+    network_mode: host
+    restart: always
+    volumes:
+      - /opt/mosquitto/config:/mosquitto/config
+      - /opt/mosquitto/data:/mosquitto/data
+      - /opt/mosquitto/log:/mosquitto/log
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+      
   influxdb:
     build: ./influx
     image: localbuild/influxdb:april2021
@@ -40,6 +56,10 @@ services:
       - "8089:8089"
     volumes:
       - influxData:/var/lib/influxdb
+      
+      
+      
+      
     networks: 
       - edge
 #Create internal link network for Containers
