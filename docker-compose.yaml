@@ -56,10 +56,7 @@ services:
       - "8089:8089"
     volumes:
       - influxData:/var/lib/influxdb
-      
-      
-      
-      
+   
     networks: 
       - edge
 #Create internal link network for Containers
