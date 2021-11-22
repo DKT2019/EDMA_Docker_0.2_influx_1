@@ -24,20 +24,7 @@ services:
       - grafanaData:/var/lib/grafana
     networks:
       - edge
-
-  mosquitto:
-    image: eclipse-mosquitto
-    container_name: mqtt
-    network_mode: host
-    restart: always
-    volumes:
-      - /opt/mosquitto/config:/mosquitto/config
-      - /opt/mosquitto/data:/mosquitto/data
-      - /opt/mosquitto/log:/mosquitto/log
-    ports:
-      - "1883:1883"
-      - "9001:9001"
-      
+  
   influxdb:
     build: ./influx
     image: localbuild/influxdb:april2021
@@ -57,6 +44,19 @@ services:
     volumes:
       - influxData:/var/lib/influxdb
    
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mqtt
+    network_mode: host
+    restart: always
+    volumes:
+      - mosquittoConfig:/opt/mosquitto/config:/mosquitto/config
+      - mosquittoData:/opt/mosquitto/data:/mosquitto/data
+      - mosquittoLog:/opt/mosquitto/log:/mosquitto/log
+    ports:
+      - "1883:1883"
+      - "9001:9001"  
+   
     networks: 
       - edge
 #Create internal link network for Containers
@@ -68,3 +68,7 @@ volumes:
   grafanaData:
   noderedData:
   influxData:
+  mosquittoConfig:
+  mosquittoData:
+  mosquittoLog:
+  
