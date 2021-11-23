@@ -51,8 +51,9 @@ services:
       - "8883:1883"
       - "9001:9001"
     volumes: 
-      - mosquittoLog:/mosquitto/log
-      - mosquittoData:/mosquitto/data
+      - /opt/mosquitto/config:/mosquitto/config
+      - /opt/mosquitto/data:/mosquitto/data
+      - /opt/mosquitto/log:/mosquitto/log
     networks:
       - edge
 #Create internal link network for Containers
@@ -64,5 +65,4 @@ volumes:
   grafanaData:
   noderedData:
   influxData:
-  mosquittoLog:
-  mosquittoData:
+
