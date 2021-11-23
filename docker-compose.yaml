@@ -57,7 +57,7 @@ services:
     volumes: 
       - mosquittoLog:/mosquitto/log
       - mosquittoData:/mosquitto/data
-      - mosquittoLog:/opt/mosquitto/log:/mosquitto/log 
+      - mosquittoConfig:/opt/mosquitto/config
     networks: 
       - edge
       
@@ -72,5 +72,5 @@ volumes:
   influxData:
   mosquittoLog:
   mosquittoData:
-  mosquittoLog:
+  mosquittoConfig:
   
