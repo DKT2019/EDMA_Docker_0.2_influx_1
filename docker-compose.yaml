@@ -45,8 +45,9 @@ services:
   #________________________________________________________________
   
     mosquitto:
-      hostname: mosquitto
-      image: eclipse-mosquitto:latest
+      build: ./mosquitto
+      image: localbuild/mosquitto:april2021
+      container_name: mosquitto
       restart: unless-stopped
     volumes:
       - /opt/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
@@ -54,7 +55,8 @@ services:
       - /opt/mosquitto/log/mosquitto.log:/mosquitto/log/mosquitto.log
       - /opt/mosquitto/data:/mosquitto/data
     ports:
-      - "1883:1883"      
+      - "8883:1883"
+      - "9001:9001"     
     networks:
       - edge
          
