@@ -55,8 +55,8 @@ services:
       - "8883:1883"
       - "9001:9001"
     volumes: 
-      - mosquittoConfig:/opt/mosquitto/config:/mosquitto/config
-      - mosquittoData:/opt/mosquitto/data:/mosquitto/data
+      - mosquittoLog:/mosquitto/log
+      - mosquittoData:/mosquitto/data
       - mosquittoLog:/opt/mosquitto/log:/mosquitto/log 
     networks: 
       - edge
@@ -70,7 +70,7 @@ volumes:
   grafanaData:
   noderedData:
   influxData:
-  mosquittoConfig:
+  mosquittoLog:
   mosquittoData:
   mosquittoLog:
   
