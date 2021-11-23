@@ -57,8 +57,8 @@ services:
     volumes: 
       - mosquittoLog:/mosquitto/log
       - mosquittoData:/mosquitto/data
-      - mosquittoConfig:/opt/mosquitto/config
-    networks: 
+      - mosquittoConfig:/mosquitto/config     
+    networks:
       - edge
       
 #Create internal link network for Containers
