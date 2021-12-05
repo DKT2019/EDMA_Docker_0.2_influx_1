@@ -68,4 +68,5 @@ volumes:
   grafanaData:
   noderedData:
   influxData:
+  mosquittoLog:
   mosquittoData:
