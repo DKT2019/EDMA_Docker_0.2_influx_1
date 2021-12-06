@@ -56,6 +56,7 @@ services:
     volumes: 
       - mosquittoLog:/mosquitto/log
       - mosquittoData:/mosquitto/data
+      - /opt/mosquitto/config:/mosquitto/config      
     networks:
       - edge
       
