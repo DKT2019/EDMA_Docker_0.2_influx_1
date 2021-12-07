@@ -54,9 +54,9 @@ services:
       - "8883:1883"
       - "9001:9001"
     volumes: 
-      - mosquittoLog:/mosquitto/log
-      - mosquittoData:/mosquitto/data
-      
+      - /EDMA_Docker_0.1/mqtt/config:/mosquitto/config
+      - /EDMA_Docker_0.1/mqtt/data:/mosquitto/data      
+      - /EDMA_Docker_0.1/mqtt/log:/mosquitto/log
     networks:
       - edge  
   
@@ -69,5 +69,6 @@ volumes:
   grafanaData:
   noderedData:
   influxData:
-  mosquittoLog:
-  mosquittoData:
+  config:
+  data:
+  log:
