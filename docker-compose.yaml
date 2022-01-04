@@ -37,6 +37,14 @@ services:
       INFLUXDB_ADMIN_PASSWORD: this
       INFLUXDB_USER: and_change
       INFLUXDB_USER_PASSWORD: this_too
+      
+      INFLUXDB_DB: DBTWO WITH DURATTION 1h
+      INFLUXDB_HTTP_AUTH_ENABLED: "true"
+      INFLUXDB_ADMIN_USER: changetwo
+      INFLUXDB_ADMIN_PASSWORD: thistwo
+      INFLUXDB_USER: and_changetwo
+      INFLUXDB_USER_PASSWORD: this_tootwo      
+      
     ports:
       - "8082:8082"
       - "8086:8086"
