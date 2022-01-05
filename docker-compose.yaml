@@ -1,7 +1,7 @@
 ##########################################################
 version: "3"
 services:
-  nodered: 
+  nodered_test: 
     build: ./nodered
     image: localbuild/nodered:april2021
     container_name: nodered
@@ -13,7 +13,7 @@ services:
     networks:
       - edge
  ##########################################################     
-  grafana:
+  grafana_test:
     build: ./grafana
     image: localbuild/grafana:april2021
     container_name: grafana
@@ -25,7 +25,7 @@ services:
     networks:
       - edge
 ##########################################################      
-  influxdb:
+  influxdb_test:
     build: ./influx
     image: localbuild/influxdb:april2021
     container_name: influxdb_test
@@ -47,7 +47,7 @@ services:
     networks: 
       - edge
 ##########################################################      
-  mosquitto:
+  mosquitto_test:
     build: ./mosquitto
     image: localbuild/mosquitto:april2021
     container_name: mosquitto  
