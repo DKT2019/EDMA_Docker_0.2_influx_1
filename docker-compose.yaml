@@ -33,10 +33,10 @@ services:
     environment:
       INFLUXDB_DB: DBONE_test
       INFLUXDB_HTTP_AUTH_ENABLED: "true"
-      INFLUXDB_ADMIN_USER: change
-      INFLUXDB_ADMIN_PASSWORD: this
-      INFLUXDB_USER: and_change
-      INFLUXDB_USER_PASSWORD: this_too
+      INFLUXDB_ADMIN_USER: change_test
+      INFLUXDB_ADMIN_PASSWORD: this_test
+      INFLUXDB_USER: and_change_test
+      INFLUXDB_USER_PASSWORD: this_too_test
             
     ports:
       - "8082:8082"
