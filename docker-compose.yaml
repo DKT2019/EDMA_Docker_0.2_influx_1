@@ -1,19 +1,18 @@
 ##########################################################
 version: "3"
 services:
-
   influxdb:
     build: ./influx
     image: localbuild/influxdb:april2021
-    container_name: influxdb_test
+    container_name: influxdb_test_3
     restart: unless-stopped
     environment:
-      INFLUXDB_DB: DBONE_test
+      INFLUXDB_DB: DBONE_test_3
       INFLUXDB_HTTP_AUTH_ENABLED: "true"
-      INFLUXDB_ADMIN_USER: change_test
-      INFLUXDB_ADMIN_PASSWORD: this_test
-      INFLUXDB_USER: and_change_test
-      INFLUXDB_USER_PASSWORD: this_too_test
+      INFLUXDB_ADMIN_USER: change_test_3
+      INFLUXDB_ADMIN_PASSWORD: this_test_3
+      INFLUXDB_USER: and_change_test_3
+      INFLUXDB_USER_PASSWORD: this_too_test_3
             
     ports:
       - "8082:8082"
@@ -22,38 +21,10 @@ services:
     volumes:
       - influxData:/var/lib/influxdb
     networks: 
-      - edge
-##########################################################      
-  mosquitto:
-    build: ./mosquitto
-    image: localbuild/mosquitto:april2021
-    container_name: mosquitto  
-    restart: always
-    ports:
-      - "1883:1883"
-      - "9001:9001"  
-    volumes:
-#old:    
-#      - /home/daniel/EDMA_Docker_0.1/mqtt/config:/mosquitto/config
-#      - /home/daniel/EDMA_Docker_0.1/mqtt/data:/mosquitto/data
-#      - /home/daniel/EDMA_Docker_0.1/mqtt/log:/mosquitto/log     
-    
-      - /EDMA_Docker_0.1/mqtt/config:/mosquitto/config
-      - /EDMA_Docker_0.1/mqtt/data:/mosquitto/data
-      - /EDMA_Docker_0.1/mqtt/log:/mosquitto/log    
-    networks: 
-      - edge           
-##########################################################    
-#Create internal link network for Containers
-networks:
-  edge:
+      - edge          
 ##########################################################
 #Create Volumes for persistent Storage
 volumes:
-  grafanaData:
-  noderedData:
   influxData:
-  config:
-  data:
-  log:  
+  
 
